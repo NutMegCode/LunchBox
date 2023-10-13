@@ -14,7 +14,7 @@
     </fragment>
     <fragment
         android:id="@+id/mealFragment"
-        android:name="com.example.lunchbox.meal.MealFragment"
+        android:name="com.example.lunchbox.meal.ItemFragment"
         android:label="MealFragment" >
         <argument
             android:name="mealType"

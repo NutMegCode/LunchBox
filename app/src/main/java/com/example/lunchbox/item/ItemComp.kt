@@ -19,7 +19,7 @@ import com.example.lunchbox.resources.Header
 import com.example.lunchbox.resources.LunchPreview
 
 @Composable
-fun MealScreen(text: String){
+fun ItemScreen(text: String){
     Column(verticalArrangement = Arrangement.Top) {
         Header(text = text, inEdit = false)
 
@@ -38,7 +38,7 @@ fun MealScreen(text: String){
                     horizontalAlignment = Alignment.CenterHorizontally)
                 {
 
-                    Text(text = "Vegetable")
+                    Text(text = "Strawberry")
 
                 }
 
@@ -61,7 +61,7 @@ fun MealScreen(text: String){
                     horizontalAlignment = Alignment.CenterHorizontally)
                 {
 
-                    Text(text = "Main")
+                    Text(text = "Watermelon")
 
                 }
 
@@ -84,7 +84,7 @@ fun MealScreen(text: String){
                     horizontalAlignment = Alignment.CenterHorizontally)
                 {
 
-                    Text(text = "Snack")
+                    Text(text = "Apple")
 
                 }
 
@@ -96,6 +96,6 @@ fun MealScreen(text: String){
 
 @LunchPreview
 @Composable
-fun MealPreview(){
-    MealScreen("Meal")
+fun ItemPreview(){
+    ItemScreen("Item")
 }

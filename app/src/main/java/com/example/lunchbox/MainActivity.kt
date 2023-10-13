@@ -10,6 +10,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.nav_host)
 
+        setUpCoordinator()
 
     }
 
