@@ -13,6 +13,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.lunchbox.Coordinator
 import com.example.lunchbox.resources.Header
@@ -21,7 +22,7 @@ import com.example.lunchbox.resources.LunchPreview
 @Composable
 fun MealScreen(text: String){
     Column(verticalArrangement = Arrangement.Top) {
-        Header(text = text, inEdit = false)
+        Header(text = text, inEdit = false, Color.Blue)
 
         Column(Modifier.padding(20.dp)) {
 
@@ -29,7 +30,7 @@ fun MealScreen(text: String){
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(100.dp)
-                    .clickable { Coordinator.homeToMeal("Breakfast") })
+                    .clickable { Coordinator.mealToItem("Fruit") })
             {
 
                 Column(
@@ -38,7 +39,7 @@ fun MealScreen(text: String){
                     horizontalAlignment = Alignment.CenterHorizontally)
                 {
 
-                    Text(text = "Vegetable")
+                    Text(text = "Fruit")
 
                 }
 
@@ -52,7 +53,7 @@ fun MealScreen(text: String){
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(100.dp)
-                    .clickable { Coordinator.homeToMeal("Lunch") })
+                    .clickable { Coordinator.homeToMeal("Main") })
             {
 
                 Column(
@@ -75,7 +76,7 @@ fun MealScreen(text: String){
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(100.dp)
-                    .clickable { Coordinator.homeToMeal("Dinner") })
+                    .clickable { Coordinator.homeToMeal("Snack") })
             {
 
                 Column(

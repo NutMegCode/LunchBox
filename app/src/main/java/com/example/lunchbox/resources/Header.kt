@@ -2,6 +2,7 @@ package com.example.lunchbox.resources
 
 import android.util.Log
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -14,15 +15,17 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.lunchbox.Coordinator
 
 @Composable
-fun Header(text: String, inEdit: Boolean){
+fun Header(text: String, inEdit: Boolean, color: Color){
     Row(
         Modifier
             .height(80.dp)
             .fillMaxWidth()
+            .background(color = color)
             .padding(20.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween)
@@ -34,10 +37,10 @@ fun Header(text: String, inEdit: Boolean){
             contentDescription = "Edit Menu",
             Modifier.clickable {
                 if (inEdit){
-                    Coordinator.popToMeal()
+                    Coordinator.popToEdit()
                 }else{
                     Log.d("RandomString", "editClicked")
-                    Coordinator.goToMeal()
+                    Coordinator.goToEdit()
                 }
             })
 
@@ -47,5 +50,5 @@ fun Header(text: String, inEdit: Boolean){
 @LunchPreview
 @Composable
 fun HeaderPreview(){
-    Header(text = "Header", inEdit = false)
+    Header(text = "Header", inEdit = false, Color.Blue)
 }

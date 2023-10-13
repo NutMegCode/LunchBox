@@ -13,11 +13,37 @@
             app:destination="@id/mealFragment" />
     </fragment>
     <fragment
+        android:id="@+id/itemFragment"
+        android:name="com.example.lunchbox.item.ItemFragment"
+        android:label="ItemFragment" >
+        <argument
+            android:name="itemType"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_itemFragment_to_editItemFragment"
+            app:destination="@id/editItemFragment" />
+    </fragment>
+    <fragment
         android:id="@+id/mealFragment"
-        android:name="com.example.lunchbox.meal.ItemFragment"
+        android:name="com.example.lunchbox.meal.MealFragment"
         android:label="MealFragment" >
         <argument
             android:name="mealType"
             app:argType="string" />
+        <action
+            android:id="@+id/action_mealFragment_to_itemFragment"
+            app:destination="@id/itemFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/editItemFragment"
+        android:name="com.example.lunchbox.editItem.EditItemFragment"
+        android:label="EditItemFragment" >
+        <argument
+            android:name="itemType"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/editFragment"
+        android:name="com.example.lunchbox.edit.EditFragment"
+        android:label="EditFragment" />
 </navigation>

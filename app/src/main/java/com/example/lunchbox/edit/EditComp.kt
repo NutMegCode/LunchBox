@@ -1,7 +1,6 @@
-package com.example.lunchbox.home
+package com.example.lunchbox.edit
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -11,10 +10,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
@@ -28,7 +23,7 @@ import com.example.lunchbox.resources.Header
 import com.example.lunchbox.resources.LunchPreview
 
 @Composable
-fun HomeScreen() {
+fun EditScreen() {
     Column(verticalArrangement = Arrangement.Top) {
         Header(text = "Home", inEdit = false, color = Color.Cyan)
 
@@ -36,19 +31,11 @@ fun HomeScreen() {
 
             Row(verticalAlignment = Alignment.CenterVertically) {
 
-                Image(
-                    modifier = Modifier
-                        .padding(end = 15.dp)
-                        .size(50.dp),
-                    imageVector = Icons.Filled.Favorite,
-                    contentDescription = ""
-                )
-
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(100.dp)
-                        .clickable { Coordinator.homeToMeal("Breakfast") },
+                        .clickable { Coordinator.homeToMeal("Meals") },
                     border = BorderStroke(2.dp, color = Color.Black),
                     colors = CardDefaults.cardColors(Color.Transparent))
                 {
@@ -71,10 +58,6 @@ fun HomeScreen() {
 
             Row(verticalAlignment = Alignment.CenterVertically) {
 
-                Image(modifier = Modifier
-                    .padding(end = 15.dp)
-                    .size(50.dp),imageVector = Icons.Filled.FavoriteBorder, contentDescription = "")
-
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -91,7 +74,7 @@ fun HomeScreen() {
                     )
                     {
 
-                        Text(text = "Lunch")
+                        Text(text = "Categories")
 
                     }
 
@@ -103,18 +86,11 @@ fun HomeScreen() {
 
             Row(verticalAlignment = Alignment.CenterVertically) {
 
-                Image(
-                    modifier = Modifier
-                        .padding(end = 15.dp)
-                        .size(50.dp),
-                    imageVector = Icons.Filled.Favorite,
-                    contentDescription = ""
-                )
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(100.dp)
-                        .clickable { Coordinator.homeToMeal("Dinner") },
+                        .clickable { Coordinator.goToItem() },
                     border = BorderStroke(2.dp, color = Color.Black),
                     colors = CardDefaults.cardColors(Color.Transparent)
                 )
@@ -127,7 +103,7 @@ fun HomeScreen() {
                     )
                     {
 
-                        Text(text = "Dinner")
+                        Text(text = "Items")
 
                     }
 
@@ -140,6 +116,6 @@ fun HomeScreen() {
 
 @LunchPreview
 @Composable
-fun HomePreview(){
-    HomeScreen()
+fun EditPreview(){
+    EditScreen()
 }

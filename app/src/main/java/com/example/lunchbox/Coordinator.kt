@@ -3,6 +3,8 @@ package com.example.lunchbox
 import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 import com.example.lunchbox.home.HomeFragmentDirections
+import com.example.lunchbox.item.ItemFragmentDirections
+import com.example.lunchbox.meal.MealFragmentDirections
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -32,15 +34,49 @@ object Coordinator {
         }
     }
 
+    fun goToItem(){
+        scopeMain.launch {
+            getNavController()?.navigate(R.id.itemFragment, args = bundleOf("itemType" to "that"))
+        }
+    }
+
+    fun mealToItem(itemType: String){
+        scopeMain.launch {
+            getNavController()?.navigate(
+                MealFragmentDirections.actionMealFragmentToItemFragment(itemType)
+            )
+        }
+    }
+
+    fun goToEditItem(){
+        scopeMain.launch {
+            getNavController()?.navigate(R.id.editItemFragment, args = bundleOf("itemType" to "that"))
+        }
+    }
+
+    fun itemToEditItem(itemType: String){
+        scopeMain.launch {
+            getNavController()?.navigate(
+                ItemFragmentDirections.actionItemFragmentToEditItemFragment(itemType)
+            )
+        }
+    }
+
+    fun goToEdit(){
+        scopeMain.launch {
+            getNavController()?.navigate(R.id.editFragment)
+        }
+    }
+
     fun popToHome(){
         scopeMain.launch {
             getNavController()?.popBackStack(R.id.homeFragment, false)
         }
     }
 
-    fun popToMeal(){
+    fun popToEdit(){
         scopeMain.launch {
-            getNavController()?.popBackStack(R.id.mealFragment, false)
+            getNavController()?.popBackStack(R.id.editFragment, false)
         }
     }
 
