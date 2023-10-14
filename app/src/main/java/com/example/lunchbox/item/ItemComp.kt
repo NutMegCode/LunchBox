@@ -1,6 +1,7 @@
 package com.example.lunchbox.item
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -11,9 +12,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.FavoriteBorder
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -22,8 +21,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.lunchbox.Coordinator
+import com.example.lunchbox.R
 import com.example.lunchbox.resources.Header
 import com.example.lunchbox.resources.LunchPreview
 
@@ -38,13 +39,13 @@ fun ItemScreen(text: String){
         val thirdSelected = remember { mutableStateOf(false) }
 
         val firstImage =
-            if (firstSelected.value) Icons.Filled.Favorite else Icons.Filled.FavoriteBorder
+            if (firstSelected.value) painterResource(id = R.drawable.strawberry) else painterResource(id = R.drawable.circle)
 
         val secondImage =
-            if (secondSelected.value) Icons.Filled.Favorite else Icons.Filled.FavoriteBorder
+            if (secondSelected.value) painterResource(id = R.drawable.watermelon) else painterResource(id = R.drawable.circle)
 
         val thirdImage =
-            if (thirdSelected.value) Icons.Filled.Favorite else Icons.Filled.FavoriteBorder
+            if (thirdSelected.value) painterResource(id = R.drawable.apple) else painterResource(id = R.drawable.circle)
 
 
         Header(text = text, inEdit = false, color = Color.Green)
@@ -58,6 +59,8 @@ fun ItemScreen(text: String){
                     modifier = Modifier
                         .padding(end = 15.dp)
                         .size(50.dp)
+                        .border(width = 2.dp, color = Color.Black, shape = CircleShape)
+                        .padding(8.dp)
                         .clickable {
                             firstSelected.value = !firstSelected.value
                             if (firstSelected.value) {
@@ -65,7 +68,7 @@ fun ItemScreen(text: String){
                                 thirdSelected.value = false
                             }
                         },
-                    imageVector = firstImage,
+                    painter = firstImage,
                     contentDescription = ""
                 )
 
@@ -99,6 +102,8 @@ fun ItemScreen(text: String){
                     modifier = Modifier
                         .padding(end = 15.dp)
                         .size(50.dp)
+                        .border(width = 2.dp, color = Color.Black, shape = CircleShape)
+                        .padding(8.dp)
                         .clickable {
                             secondSelected.value = !secondSelected.value
                             if (secondSelected.value) {
@@ -106,7 +111,7 @@ fun ItemScreen(text: String){
                                 thirdSelected.value = false
                             }
                         },
-                    imageVector = secondImage,
+                    painter = secondImage,
                     contentDescription = ""
                 )
 
@@ -141,6 +146,8 @@ fun ItemScreen(text: String){
                     modifier = Modifier
                         .padding(end = 15.dp)
                         .size(50.dp)
+                        .border(width = 2.dp, color = Color.Black, shape = CircleShape)
+                        .padding(8.dp)
                         .clickable {
                             thirdSelected.value = !thirdSelected.value
                             if (thirdSelected.value) {
@@ -148,7 +155,7 @@ fun ItemScreen(text: String){
                                 secondSelected.value = false
                             }
                         },
-                    imageVector = thirdImage,
+                    painter = thirdImage,
                     contentDescription = ""
                 )
 

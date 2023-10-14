@@ -12,9 +12,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
@@ -22,8 +19,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.lunchbox.Coordinator
+import com.example.lunchbox.R
 import com.example.lunchbox.resources.Header
 import com.example.lunchbox.resources.LunchPreview
 
@@ -40,7 +39,7 @@ fun HomeScreen() {
                     modifier = Modifier
                         .padding(end = 15.dp)
                         .size(50.dp),
-                    imageVector = Icons.Filled.Favorite,
+                    painter = painterResource(R.drawable.circle_full),
                     contentDescription = ""
                 )
 
@@ -73,7 +72,7 @@ fun HomeScreen() {
 
                 Image(modifier = Modifier
                     .padding(end = 15.dp)
-                    .size(50.dp),imageVector = Icons.Filled.FavoriteBorder, contentDescription = "")
+                    .size(50.dp),painter = painterResource(R.drawable.circle), contentDescription = "")
 
                 Card(
                     modifier = Modifier
@@ -107,7 +106,7 @@ fun HomeScreen() {
                     modifier = Modifier
                         .padding(end = 15.dp)
                         .size(50.dp),
-                    imageVector = Icons.Filled.Favorite,
+                    painter = painterResource(R.drawable.circle_full),
                     contentDescription = ""
                 )
                 Card(
